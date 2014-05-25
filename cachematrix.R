@@ -4,14 +4,24 @@
 ## Write a short comment describing this function
 ## Create a Matrix  - If a matric is passed, store it. Else, create an empty one.
 makeCacheMatrix <- function(x = matrix()) {
+  ## Create a variable that stores the Inverse of the Matrix
+  ## Initialise it to Null as the Inverse is not cached yet
   m <- NULL
   set <- function(y) {
     x <<- y
     m <<- NULL
   }
+  
+  ## Get the matrix that was used to create the calling object
   get <- function() { x }
+  
+  ## Set the inverse Cache variable
   setinv <- function(inv) { m <<- inv }
+  
+  ## Get the inverse Cache variable
   getinv <- function() { m }
+  
+  ## Return a list object with Functions as its elements. The calling object can refer them as <obj$Function>
   list(set = set, get = get, setinv = setinv, getinv = getinv)
 }
 
